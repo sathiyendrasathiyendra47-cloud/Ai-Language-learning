@@ -1,0 +1,21 @@
+{
+  "name": "ai-language-learning-companion",
+  "version": "1.0.0",
+  "description": "AI Language Learning Companion for Beginners (A1 English with Tamil Support)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve:py": "python server.py"
+  },
+  "keywords": [
+    "ai-language-learning",
+    "english-a1",
+    "tamil-support",
+    "capstone",
+    "speech-recognition",
+    "text-to-speech"
+  ],
+  "author": "Capstone 4 Team",
+  "license": "MIT"
+}

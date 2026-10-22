@@ -1,0 +1,31 @@
+Sentence No,AI Tool,Original Sentence,AI Correction,AI Tamil Translation,Error Found (Yes/No/Uncertain),Error Type,Verified Correction or Translation,Severity,Evidence or Reference,Notes
+1,ChatGPT,He go to school every day.,,,,,,,,
+1,Gemini,He go to school every day.,,,,,,,,
+1,Claude,He go to school every day.,,,,,,,,
+2,ChatGPT,I am go to college.,,,,,,,,Meaning depends on context
+2,Gemini,I am go to college.,,,,,,,,Meaning depends on context
+2,Claude,I am go to college.,,,,,,,,Meaning depends on context
+3,ChatGPT,She don't like tea.,,,,,,,,
+3,Gemini,She don't like tea.,,,,,,,,
+3,Claude,She don't like tea.,,,,,,,,
+4,ChatGPT,They is my friends.,,,,,,,,
+4,Gemini,They is my friends.,,,,,,,,
+4,Claude,They is my friends.,,,,,,,,
+5,ChatGPT,I have a apple.,,,,,,,,
+5,Gemini,I have a apple.,,,,,,,,
+5,Claude,I have a apple.,,,,,,,,
+6,ChatGPT,Yesterday I go to market.,,,,,,,,
+6,Gemini,Yesterday I go to market.,,,,,,,,
+6,Claude,Yesterday I go to market.,,,,,,,,
+7,ChatGPT,He is taller than me.,,,,,,,,Acceptable in ordinary conversation
+7,Gemini,He is taller than me.,,,,,,,,Acceptable in ordinary conversation
+7,Claude,He is taller than me.,,,,,,,,Acceptable in ordinary conversation
+8,ChatGPT,I didn't went there.,,,,,,,,
+8,Gemini,I didn't went there.,,,,,,,,
+8,Claude,I didn't went there.,,,,,,,,
+9,ChatGPT,Where you are going?,,,,,,,,Evaluate as a direct question unless context indicates otherwise
+9,Gemini,Where you are going?,,,,,,,,Evaluate as a direct question unless context indicates otherwise
+9,Claude,Where you are going?,,,,,,,,Evaluate as a direct question unless context indicates otherwise
+10,ChatGPT,I can to swim.,,,,,,,,
+10,Gemini,I can to swim.,,,,,,,,
+10,Claude,I can to swim.,,,,,,,,

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Language Learning Companion — A1 English with Tamil Support</title>
+  <meta name="description" content="Interactive 14-Day AI Language Learning Companion for A1 English Beginners with Tamil scaffolding, multi-tool benchmark testing, audio pronunciation lab, and mistake verification.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <a href="#" class="brand-section" id="nav-brand-home">
+      <div class="brand-logo-badge">🗣️</div>
+      <div class="brand-info">
+        <h1>AI English Companion <span class="badge-tag">A1 Beginner</span></h1>
+        <p>Support Language: <span class="tamil-text">தமிழ் (Tamil)</span> • 14-Day Capstone Suite</p>
+      </div>
+    </a>
+
+    <div class="nav-controls">
+      <!-- Speech Speed Selector -->
+      <button class="ctrl-btn" id="btn-toggle-speed" title="Adjust speech playback speed for beginner listening">
+        <span>🔊</span> <span id="lbl-speed">Speed: 0.85x</span>
+      </button>
+
+      <!-- Theme Switcher -->
+      <button class="ctrl-btn" id="btn-toggle-theme" title="Toggle Dark/Light Mode">
+        <span id="theme-icon">🌙</span> <span id="theme-text">Dark</span>
+      </button>
+
+      <!-- Quick Reset / Demo Data -->
+      <button class="ctrl-btn" id="btn-export-all" title="Export all logs and progress">
+        <span>💾</span> <span>Export Progress</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar">
+      <div class="nav-section-title">Core Learning</div>
+      <button class="sidebar-tab-btn active" data-tab="dashboard" id="tab-btn-dashboard">
+        <span class="tab-icon">🏠</span>
+        <span class="tab-label">Dashboard</span>
+      </button>
+      <button class="sidebar-tab-btn" data-tab="plan" id="tab-btn-plan">
+        <span class="tab-icon">📅</span>
+        <span class="tab-label">14-Day Plan</span>
+        <span class="tab-badge" id="badge-plan-count">14 Days</span>
+      </button>
+      <button class="sidebar-tab-btn" data-tab="tutor" id="tab-btn-tutor">
+        <span class="tab-icon">🤖</span>
+        <span class="tab-label">AI Practice Partner</span>
+        <span class="tab-badge" style="background: rgba(99,102,241,0.25); color: #a5b4fc;">Live</span>
+      </button>
+      <button class="sidebar-tab-btn" data-tab="vocab" id="tab-btn-vocab">
+        <span class="tab-icon">📚</span>
+        <span class="tab-label">Bilingual Vocabulary</span>
+        <span class="tab-badge" id="badge-vocab-count">10 Words</span>
+      </button>
+      <button class="sidebar-tab-btn" data-tab="quiz" id="tab-btn-quiz">
+        <span class="tab-icon">📝</span>
+        <span class="tab-label">A1 Diagnostic Quiz</span>
+      </button>
+
+      <div class="nav-section-title">Analysis & Research</div>
+      <button class="sidebar-tab-btn" data-tab="benchmark" id="tab-btn-benchmark">
+        <span class="tab-icon">⚖️</span>
+        <span class="tab-label">3-Tool Benchmark</span>
+      </button>
+      <button class="sidebar-tab-btn" data-tab="audio" id="tab-btn-audio">
+        <span class="tab-icon">🎙️</span>
+        <span class="tab-label">Pronunciation Lab</span>
+      </button>
+      <button class="sidebar-tab-btn" data-tab="mistakes" id="tab-btn-mistakes">
+        <span class="tab-icon">📋</span>
+        <span class="tab-label">Mistake & Verification Log</span>
+        <span class="tab-badge" id="badge-mistakes-count">30 Rows</span>
+      </button>
+
+      <div class="nav-section-title">Capstone Deliverables</div>
+      <button class="sidebar-tab-btn" data-tab="poster" id="tab-btn-poster">
+        <span class="tab-icon">🎨</span>
+        <span class="tab-label">Illustrated Poster</span>
+      </button>
+      <button class="sidebar-tab-btn" data-tab="before-after" id="tab-btn-before-after">
+        <span class="tab-icon">📊</span>
+        <span class="tab-label">Before / After Analysis</span>
+      </button>
+      <button class="sidebar-tab-btn" data-tab="slides" id="tab-btn-slides">
+        <span class="tab-icon">🖥️</span>
+        <span class="tab-label">Presentation Demo</span>
+      </button>
+      <button class="sidebar-tab-btn" data-tab="responsible" id="tab-btn-responsible">
+        <span class="tab-icon">🛡️</span>
+        <span class="tab-label">Responsible AI</span>
+      </button>
+
+      <!-- Sidebar Progress -->
+      <div class="sidebar-progress-card">
+        <div class="progress-header">
+          <span>Overall Progress</span>
+          <span id="sidebar-progress-pct">7%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="sidebar-progress-bar" style="width: 7%;"></div>
+        </div>
+        <div class="progress-sub" id="sidebar-progress-status">Day 1 Completed</div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="app-content">
+
+      <!-- ===================================================================
+           VIEW: DASHBOARD
+           =================================================================== -->
+      <section class="view-section active" id="view-dashboard">
+        <div class="hero-card">
+          <h2 class="hero-title">AI Language Learning Companion</h2>
+          <p class="hero-desc">
+            Empowering A1 beginner learners to master foundational English with tailored Tamil scaffolding, 
+            interactive voice practice, multi-model AI testing, and verifiable evidence.
+          </p>
+          <div class="hero-stats-grid">
+            <div class="stat-card">
+              <span class="stat-number" id="dash-stat-days">1 / 14</span>
+              <span class="stat-label">Days Finished</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" id="dash-stat-quiz">-- / 10</span>
+              <span class="stat-label">Quiz High Score</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" id="dash-stat-vocab">10</span>
+              <span class="stat-label">Bilingual Words</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" id="dash-stat-logs">30</span>
+              <span class="stat-label">Verified Test Rows</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-header">
+          <div>
+            <h3 class="section-title">🚀 Quick Start Learning Modules</h3>
+            <p class="section-desc">Select an activity to begin your daily 20–30 minute practice session.</p>
+          </div>
+        </div>
+
+        <div class="plan-grid">
+          <div class="day-card" style="cursor: pointer;" onclick="window.app.switchTab('tutor');">
+            <div class="day-card-header">
+              <span class="day-pill" style="background: rgba(99,102,241,0.2); color:#a5b4fc;">Interactive Chat</span>
+              <span style="font-size: 1.4rem;">🤖</span>
+            </div>
+            <h4 class="day-topic">Speak with AI Practice Partner</h4>
+            <p class="day-activity">Engage in patient, low-stakes roleplay conversations with immediate Tamil grammar feedback.</p>
+            <button class="btn-primary" style="margin-top: auto;">Start Conversation →</button>
+          </div>
+
+          <div class="day-card" style="cursor: pointer;" onclick="window.app.switchTab('quiz');">
+            <div class="day-card-header">
+              <span class="day-pill" style="background: rgba(16,185,129,0.2); color:#34d399;">Diagnostic</span>
+              <span style="font-size: 1.4rem;">📝</span>
+            </div>
+            <h4 class="day-topic">Take the 10-Question A1 Quiz</h4>
+            <p class="day-activity">Test am/is/are, past tense, question word order, articles, and English–Tamil vocabulary.</p>
+            <button class="btn-primary" style="margin-top: auto; background: linear-gradient(135deg, #10b981 0%, #059669 100%);">Launch Quiz →</button>
+          </div>
+
+          <div class="day-card" style="cursor: pointer;" onclick="window.app.switchTab('benchmark');">
+            <div class="day-card-header">
+              <span class="day-pill" style="background: rgba(245,158,11,0.2); color:#fbbf24;">Research Lab</span>
+              <span style="font-size: 1.4rem;">⚖️</span>
+            </div>
+            <h4 class="day-topic">Compare ChatGPT vs Gemini vs Claude</h4>
+            <p class="day-activity">Inspect side-by-side performance across 10 standard test sentences or evaluate your own sentence.</p>
+            <button class="btn-primary" style="margin-top: auto; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">View Comparison →</button>
+          </div>
+
+          <div class="day-card" style="cursor: pointer;" onclick="window.app.switchTab('audio');">
+            <div class="day-card-header">
+              <span class="day-pill" style="background: rgba(217,70,239,0.2); color:#e879f9;">Voice Studio</span>
+              <span style="font-size: 1.4rem;">🎙️</span>
+            </div>
+            <h4 class="day-topic">Pronunciation Audio Comparison</h4>
+            <p class="day-activity">Listen to clear speech synthesis at 0.85x speed, record your own voice, and compare pronunciation.</p>
+            <button class="btn-primary" style="margin-top: auto; background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);">Enter Studio →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           VIEW: 14-DAY PRACTICE PLAN
+           =================================================================== -->
+      <section class="view-section" id="view-plan">
+        <div class="section-header">
+          <div>
+            <h3 class="section-title">📅 14-Day Structured Practice Plan</h3>
+            <p class="section-desc">Daily 20–30 minutes routine: Review vocabulary, practice with AI, check mistakes, speak aloud.</p>
+          </div>
+          <button class="ctrl-btn" id="btn-reset-plan-progress">Reset Progress</button>
+        </div>
+        <div class="plan-grid" id="plan-container">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           VIEW: AI PRACTICE PARTNER (TUTOR)
+           =================================================================== -->
+      <section class="view-section" id="view-tutor">
+        <div class="section-header">
+          <div>
+            <h3 class="section-title">🤖 AI Practice Partner (English A1 + தமிழ்)</h3>
+            <p class="section-desc">One question at a time, easy vocabulary, and immediate gentle Tamil grammar explanations.</p>
+          </div>
+        </div>
+
+        <div class="tutor-layout">
+          <!-- Scenarios list -->
+          <div class="tutor-sidebar">
+            <h4 style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">Practice Scenarios</h4>
+            <div id="scenario-list">
+              <!-- Dynamically populated by app.js -->
+            </div>
+          </div>
+
+          <!-- Chat interface -->
+          <div class="chat-container">
+            <div class="chat-header">
+              <div class="chat-partner-info">
+                <div class="avatar-badge">P</div>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 600;" id="chat-partner-name">Priya — English Teacher</h4>
+                  <p style="font-size: 0.75rem; color: var(--text-muted);">A1 Friendly Tutor • Tamil Scaffolding Active</p>
+                </div>
+              </div>
+              <button class="ctrl-btn" id="btn-clear-chat" title="Clear current chat">
+                <span>🗑️</span> <span>Clear Chat</span>
+              </button>
+            </div>
+
+            <div class="chat-history" id="chat-history">
+              <!-- Chat bubbles rendered dynamically -->
+            </div>
+
+            <!-- Hints Bar -->
+            <div class="chat-hints-bar" id="chat-hints-bar">
+              <span style="font-size: 0.75rem; color: var(--text-muted);">💡 Suggestions:</span>
+              <!-- Dynamically injected hints -->
+            </div>
+
+            <!-- Chat input bar -->
+            <div class="chat-input-area">
+              <button class="btn-mic" id="btn-tutor-mic" title="Speak using microphone">🎙️</button>
+              <input type="text" class="chat-input" id="chat-user-input" placeholder="Type your English answer here (e.g. My name is...) or click the mic...">
+              <button class="btn-primary" id="btn-send-message">Send ➔</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           VIEW: 3-TOOL BENCHMARK & EVALUATION
+           =================================================================== -->
+      <section class="view-section" id="view-benchmark">
+        <div class="section-header">
+          <div>
+            <h3 class="section-title">⚖️ Three-Tool Evaluation & Sentence Benchmarking</h3>
+            <p class="section-desc">Comparing ChatGPT, Gemini, and Claude on the 10 standard test sentences with independent reference checks.</p>
+          </div>
+        </div>
+
+        <!-- Custom Sentence Tester -->
+        <div class="custom-tester-card">
+          <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">🧪 Live Sentence Grammar Tester</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem;">
+            Test any custom English sentence. Our diagnostic engine checks grammar rules and provides an instant Tamil explanation.
+          </p>
+          <div style="display: flex; gap: 0.8rem; margin-bottom: 1rem;">
+            <input type="text" class="chat-input" id="custom-test-input" placeholder="Enter a sentence to test (e.g., 'She don't like coffee')">
+            <button class="btn-primary" id="btn-run-custom-test">Analyze Sentence</button>
+          </div>
+          <div id="custom-test-result" style="display: none;">
+            <!-- Rendered result -->
+          </div>
+        </div>
+
+        <!-- 10 Benchmark Sentences -->
+        <h4 style="font-size: 1.2rem; margin-bottom: 1rem;">Ten Benchmark Sentences (ChatGPT vs Gemini vs Claude)</h4>
+        <div class="benchmark-grid" id="benchmark-container">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           VIEW: BILINGUAL VOCABULARY HUB
+           =================================================================== -->
+      <section class="view-section" id="view-vocab">
+        <div class="section-header">
+          <div>
+            <h3 class="section-title">📚 Bilingual Vocabulary Sheet (English ↔ தமிழ்)</h3>
+            <p class="section-desc">Ten essential everyday words with Tamil meanings, phonetics, example sentences, and audio pronunciation.</p>
+          </div>
+        </div>
+
+        <div class="vocab-controls-bar">
+          <div style="display: flex; gap: 0.8rem; flex: 1; max-width: 450px;">
+            <input type="text" class="chat-input" id="vocab-search-input" placeholder="Search English or Tamil word...">
+          </div>
+          <button class="btn-primary" id="btn-add-vocab-modal">+ Add New Word</button>
+        </div>
+
+        <div class="vocab-grid" id="vocab-cards-container">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           VIEW: A1 DIAGNOSTIC QUIZ
+           =================================================================== -->
+      <section class="view-section" id="view-quiz">
+        <div class="section-header">
+          <div>
+            <h3 class="section-title">📝 10-Question A1 English Quiz</h3>
+            <p class="section-desc">Assess am/is/are, articles, irregular past tense, question word order, modals, and Tamil translation.</p>
+          </div>
+          <div style="font-weight: 600;" id="quiz-score-badge">Score: 0 / 10</div>
+        </div>
+
+        <div class="quiz-card" id="quiz-wrapper">
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="quiz-progress-fill" style="width: 10%;"></div>
+          </div>
+
+          <div id="quiz-question-container">
+            <!-- Dynamically populated by app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           VIEW: PRONUNCIATION AUDIO LAB
+           =================================================================== -->
+      <section class="view-section" id="view-audio">
+        <div class="section-header">
+          <div>
+            <h3 class="section-title">🎙️ Audio Samples & Pronunciation Lab</h3>
+            <p class="section-desc">Compare clear AI speech synthesis against reference audio; record your own voice and compare pronunciation.</p>
+          </div>
+        </div>
+
+        <div class="audio-grid" id="audio-samples-container">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           VIEW: MISTAKE & VERIFICATION LOG
+           =================================================================== -->
+      <section class="view-section" id="view-mistakes">
+        <div class="section-header">
+          <div>
+            <h3 class="section-title">📋 Mistake Log & Independent Verification</h3>
+            <p class="section-desc">30 test records evaluating AI responses, error categories, severities, and verified corrections.</p>
+          </div>
+          <div style="display: flex; gap: 0.6rem;">
+            <button class="btn-primary" id="btn-add-mistake-record">+ Add Entry</button>
+            <button class="ctrl-btn" id="btn-export-csv">📥 Download CSV</button>
+          </div>
+        </div>
+
+        <!-- Filter bar -->
+        <div style="display: flex; gap: 1rem; margin-bottom: 1.2rem; flex-wrap: wrap;">
+          <select class="chat-input" id="filter-tool-select" style="max-width: 200px;">
+            <option value="All">All AI Tools</option>
+            <option value="ChatGPT">ChatGPT</option>
+            <option value="Gemini">Gemini</option>
+            <option value="Claude">Claude</option>
+          </select>
+          <select class="chat-input" id="filter-error-select" style="max-width: 200px;">
+            <option value="All">All Error Statuses</option>
+            <option value="No">No Error</option>
+            <option value="Uncertain">Uncertain / Nuance</option>
+          </select>
+        </div>
+
+        <div class="table-container">
+          <table class="data-table" id="mistake-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>AI Tool</th>
+                <th>Original Sentence</th>
+                <th>AI Correction</th>
+                <th>AI Tamil Translation</th>
+                <th>Error Status</th>
+                <th>Verified Decision</th>
+                <th>Notes</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="mistake-table-body">
+              <!-- Dynamically populated by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           VIEW: ILLUSTRATED POSTER
+           =================================================================== -->
+      <section class="view-section" id="view-poster">
+        <div class="section-header">
+          <div>
+            <h3 class="section-title">🎨 Illustrated Vocabulary Poster</h3>
+            <p class="section-desc">Visual learning chart matching the Capstone 08 specification: 10 everyday words with Tamil translations.</p>
+          </div>
+          <button class="btn-primary" onclick="window.print();">🖨️ Print / Save PDF</button>
+        </div>
+
+        <div class="poster-preview-card" id="poster-element">
+          <div class="poster-header">
+            <h2 class="poster-title">Learn 10 Everyday English Words</h2>
+            <p class="poster-subtitle">ஆங்கிலம் & தமிழ் • English & Tamil Daily Vocabulary Guide</p>
+          </div>
+          <div class="poster-grid" id="poster-grid-container">
+            <!-- Dynamically populated by app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           VIEW: BEFORE & AFTER ANALYSIS
+           =================================================================== -->
+      <section class="view-section" id="view-before-after">
+        <div class="section-header">
+          <div>
+            <h3 class="section-title">📊 Before-and-After Analysis (Day 1 vs Day 14)</h3>
+            <p class="section-desc">Objective quantitative progress tracking across the 14-day study period.</p>
+          </div>
+        </div>
+
+        <div class="table-container" style="margin-bottom: 2rem;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Measurement Metric</th>
+                <th>Day 1 (Baseline)</th>
+                <th>Day 14 (Final)</th>
+                <th>Improvement Change</th>
+                <th>Research Notes</th>
+              </tr>
+            </thead>
+            <tbody id="before-after-tbody">
+              <!-- Dynamically populated by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           VIEW: PRESENTATION SLIDES (DEMO)
+           =================================================================== -->
+      <section class="view-section" id="view-slides">
+        <div class="section-header">
+          <div>
+            <h3 class="section-title">🖥️ Capstone Final Demo Presentation Deck</h3>
+            <p class="section-desc">Interactive 12-slide walkthrough for classroom and capstone presentation.</p>
+          </div>
+          <div style="font-weight: 600;" id="slide-counter-badge">Slide 1 of 12</div>
+        </div>
+
+        <div class="slide-container" id="slide-wrapper">
+          <div id="slide-content">
+            <!-- Injected by app.js -->
+          </div>
+          <div class="slide-nav-bar">
+            <button class="ctrl-btn" id="btn-prev-slide">◀ Previous Slide</button>
+            <div style="display: flex; gap: 0.5rem;" id="slide-dots"></div>
+            <button class="btn-primary" id="btn-next-slide">Next Slide ▶</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           VIEW: RESPONSIBLE AI GUIDELINES
+           =================================================================== -->
+      <section class="view-section" id="view-responsible">
+        <div class="section-header">
+          <div>
+            <h3 class="section-title">🛡️ Responsible AI: Limits, Safety & Ethics</h3>
+            <p class="section-desc">Practical principles for deploying AI tutors safely in beginner language learning.</p>
+          </div>
+        </div>
+
+        <div class="plan-grid" id="responsible-ai-container">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Entry Script -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
